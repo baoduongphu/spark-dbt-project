@@ -1,0 +1,19 @@
+name: spark_dbt_project
+
+profile: spark_dbt_project
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  spark_dbt_project:
+    silver:
+      +schema: silver
+      +materialized: table
+    gold:
+      +schema: gold
+      +materialized: table

@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: silver_customers
+    columns:
+      - name: customer_id
+        description: "Unique identifier of each customer."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: full_name
+        description: "Customer full name."
+        data_tests:
+          - not_null
+
+      - name: email
+        description: "Customer email address."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: phone_number
+        description: "Customer phone number."
+        data_tests:
+          - not_null
+
+      - name: city
+        description: "Customer city."
+
+      - name: signup_date
+        description: "Date when the customer registered."
+        data_tests:
+          - not_null
+
+      - name: last_updated_timestamp
+        description: "Timestamp indicating when the customer record was last updated in the source system."
+        data_tests:
+          - not_null
+
+      - name: _dbt_loaded_at
+        description: "Timestamp when the record was loaded into the warehouse by dbt."
+        data_tests:
+          - not_null
+
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "signup_date <= current_date"
+
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "email LIKE '%@%.%'"
+            
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "phone_number RLIKE '^[0-9]+$'"

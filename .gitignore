@@ -1,0 +1,49 @@
+# =========================
+# Python
+# =========================
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# dbt
+# =========================
+**/target/
+**/dbt_packages/
+**/logs/
+
+# dbt profiles / credentials
+**/profiles.yml
+**/profile.yml
+**/profilePS.yml
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
+*.bak

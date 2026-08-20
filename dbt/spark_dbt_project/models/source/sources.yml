@@ -1,0 +1,12 @@
+sources:
+    - name: bronze_source
+      description: "This is the source data for the project."
+      database: sparkdbt_project
+      schema: bronze
+      tables:
+        - name: customers
+        - name: drivers
+        - name: locations
+        - name: payments
+        - name: trips
+        - name: vehicles
